@@ -8,6 +8,8 @@ def normalize_isbn(value: str) -> str:
 
 
 class BookSerializer(serializers.ModelSerializer):
+    isbn = serializers.CharField(max_length=32, allow_blank=False)
+
     class Meta:
         model = Book
         fields = [
