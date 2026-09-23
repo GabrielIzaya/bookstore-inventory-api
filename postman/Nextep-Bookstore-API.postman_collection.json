@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "Nextep - Bookstore Inventory API",
+    "description": "Colección CRUD, filtros y cálculo de precio.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{"key": "book_id", "value": "1"}],
+  "item": [
+    {"name":"Health","request":{"method":"GET","url":{"raw":"{{base_url}}/health/","host":["{{base_url}}"],"path":["health",""]}}},
+    {"name":"Create Book","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"title\": \"El Quijote\",\n  \"author\": \"Miguel de Cervantes\",\n  \"isbn\": \"978-84-376-0494-7\",\n  \"cost_usd\": \"15.99\",\n  \"stock_quantity\": 25,\n  \"category\": \"Literatura Clásica\",\n  \"supplier_country\": \"ES\"\n}"},"url":{"raw":"{{base_url}}/api/books/","host":["{{base_url}}"],"path":["api","books",""]}}},
+    {"name":"List Books","request":{"method":"GET","url":{"raw":"{{base_url}}/api/books/","host":["{{base_url}}"],"path":["api","books",""]}}},
+    {"name":"Get Book","request":{"method":"GET","url":{"raw":"{{base_url}}/api/books/{{book_id}}/","host":["{{base_url}}"],"path":["api","books","{{book_id}}",""]}}},
+    {"name":"Update Book","request":{"method":"PUT","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"title\": \"El Quijote - Edición Especial\",\n  \"author\": \"Miguel de Cervantes\",\n  \"isbn\": \"9788437604947\",\n  \"cost_usd\": \"18.50\",\n  \"stock_quantity\": 12,\n  \"category\": \"Literatura Clásica\",\n  \"supplier_country\": \"ES\"\n}"},"url":{"raw":"{{base_url}}/api/books/{{book_id}}/","host":["{{base_url}}"],"path":["api","books","{{book_id}}",""]}}},
+    {"name":"Search Category","request":{"method":"GET","url":{"raw":"{{base_url}}/api/books/search/?category=Literatura","host":["{{base_url}}"],"path":["api","books","search",""],"query":[{"key":"category","value":"Literatura"}]}}},
+    {"name":"Low Stock","request":{"method":"GET","url":{"raw":"{{base_url}}/api/books/low-stock/?threshold=10","host":["{{base_url}}"],"path":["api","books","low-stock",""],"query":[{"key":"threshold","value":"10"}]}}},
+    {"name":"Calculate Price","request":{"method":"POST","url":{"raw":"{{base_url}}/api/books/{{book_id}}/calculate-price/","host":["{{base_url}}"],"path":["api","books","{{book_id}}","calculate-price",""]}}},
+    {"name":"Delete Book","request":{"method":"DELETE","url":{"raw":"{{base_url}}/api/books/{{book_id}}/","host":["{{base_url}}"],"path":["api","books","{{book_id}}",""]}}}
+  ]
+}
